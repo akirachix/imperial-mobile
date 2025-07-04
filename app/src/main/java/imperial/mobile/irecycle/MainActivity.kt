@@ -5,24 +5,34 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import imperial.mobile.irecycle.ui.theme.IRECYCLETheme
+import androidx.core.view.WindowCompat
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
+        // Enable edge-to-edge display
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
         setContent {
-            IRECYCLETheme {
+            MaterialTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                    LoginScreen(
+                        onSignUpClick = {
+                            // Handle sign-up navigation here
+                        },
+                        onForgotPasswordClick = {
+                            // Handle forgot password navigation here
+                        },
+                        onLoginClick = {
+
+                        }
                     )
                 }
             }
@@ -30,18 +40,20 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    IRECYCLETheme {
-        Greeting("Android")
+fun MainPreview() {
+    MaterialTheme {
+        LoginScreen(
+            onSignUpClick = {},
+            onForgotPasswordClick = {},
+            onLoginClick = {},
+        )
     }
 }
+
+
+
+
+
+
