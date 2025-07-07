@@ -1,6 +1,5 @@
 package imperial.mobile.irecycle
 
-
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -10,16 +9,9 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.graphics.Color
-import androidx.compose.material3.Text
-import androidx.compose.ui.text.TextStyle
-import androidx.core.app.NotificationCompat.Style
 
 @Composable
-fun LoginScreen(
-    onSignUpClick: () -> Unit,
-    onLoginClick: () -> Unit,
-    onForgotPasswordClick: () -> Unit
-) {
+fun LoginScreen(modifier: Modifier) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -47,6 +39,7 @@ fun LoginScreen(
         )
 
         Spacer(modifier = Modifier.height(32.dp))
+
         Text(
             text = "Username",
             style = MaterialTheme.typography.headlineMedium,
@@ -80,17 +73,14 @@ fun LoginScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        TextButton(onClick = onForgotPasswordClick) {
-            Text("Forgot Password?")
-            TextStyle(color = Color(11, 12, 12))
+        TextButton(onClick = { }) {
+            Text("Forgot Password?", color = Color.DarkGray)
         }
 
         Spacer(modifier = Modifier.height(16.dp))
 
-
-
         Button(
-            onClick = onLoginClick,
+            onClick = { },
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xFF14643c),
@@ -99,13 +89,14 @@ fun LoginScreen(
         ) {
             Text("Login")
         }
-        TextButton(onClick = onSignUpClick) {
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        TextButton(onClick = { }) {
             Text(
                 text = "Don't have an account? Sign Up",
-                style = TextStyle(color = Color(11, 12, 12))
+                color = Color.Black
             )
         }
     }
 }
-
-
