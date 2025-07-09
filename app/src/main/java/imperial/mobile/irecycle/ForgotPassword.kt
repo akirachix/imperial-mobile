@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
@@ -19,6 +20,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import imperial.mobile.irecycle.ui.theme.Roboto
 
 @Composable
 fun ResetPasswordScreen(
@@ -45,7 +47,8 @@ fun ResetPasswordScreen(
                 fontWeight = FontWeight.Bold,
                 color = Color(0xFF006241),
                 textAlign = TextAlign.Center,
-                lineHeight = 38.sp
+                lineHeight = 38.sp,
+                fontFamily = Roboto
             )
 
             Spacer(modifier = Modifier.height(64.dp))
@@ -55,7 +58,8 @@ fun ResetPasswordScreen(
                 fontSize = 18.sp,
                 color = Color.Black,
                 modifier = Modifier
-                    .align(Alignment.Start)
+                    .align(Alignment.Start),
+                fontFamily = Roboto
             )
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -82,7 +86,8 @@ fun ResetPasswordScreen(
                 modifier = Modifier
                     .align(Alignment.Start)
                     .clickable { onResendClick() },
-                lineHeight = 26.sp
+                lineHeight = 26.sp,
+                fontFamily = Roboto
             )
         }
 
