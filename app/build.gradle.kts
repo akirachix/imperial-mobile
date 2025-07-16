@@ -63,5 +63,5 @@ dependencies {
     implementation("androidx.compose.ui:ui:1.7.4")
     implementation("androidx.compose.runtime:runtime:1.7.4")
     implementation("androidx.compose.foundation:foundation:1.7.4")
-
+    implementation("androidx.navigation:navigation-compose:2.7.2")
 }
