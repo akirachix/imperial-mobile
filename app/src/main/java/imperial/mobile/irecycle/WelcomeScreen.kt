@@ -1,9 +1,12 @@
 package imperial.mobile.irecycle
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -52,10 +55,12 @@ fun WelcomeScreen(onNextClick: () -> Unit) {
 
 
         Surface(
-            color = Color(0xFF006400),
+            color = Color(0xFF14643c),
             modifier = Modifier
                 .weight(1f)
-                .fillMaxWidth()
+                .fillMaxWidth(),
+            shape = RoundedCornerShape(topStart = 32.dp, topEnd = 32.dp)
+
         ) {
             Column(
                 modifier = Modifier
@@ -77,12 +82,15 @@ fun WelcomeScreen(onNextClick: () -> Unit) {
 
                 Button(
                     onClick = onNextClick,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 32.dp)
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFF14643c),
+                        contentColor = Color.White
+                    ),
+                    border = BorderStroke(1.dp, Color.White),
                 ) {
-                    Text("Get started", color = Color.Green)
+                    Text("Get Started")
                 }
+
             }
         }
     }

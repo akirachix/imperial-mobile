@@ -1,6 +1,5 @@
 package imperial.mobile.irecycle
 
-
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -10,7 +9,6 @@ import androidx.navigation.compose.rememberNavController
 @Composable
 fun AuthNavGraph(navController: NavHostController = rememberNavController()) {
     NavHost(navController = navController, startDestination = "welcome") {
-        // Teaser Screens
         composable("welcome") {
             WelcomeScreen(onNextClick = { navController.navigate("how_it_works") })
         }
@@ -21,18 +19,18 @@ fun AuthNavGraph(navController: NavHostController = rememberNavController()) {
             )
         }
 
-        // Authentication Screens
         composable("login") {
             LoginScreen(
                 onSignUpClick = { navController.navigate("signup") },
-                onForgotPasswordClick = { navController.navigate("forgot_password") }
+                onForgotPasswordClick = { navController.navigate("forgot_password") },
+                onLoginClick = { /* handle login here or navigate */ }
             )
         }
         composable("signup") {
-            SignUpScreen(onLoginClick = { navController.navigate("login") })
+            SignUp(onLoginClick = { navController.navigate("login") })
         }
         composable("forgot_password") {
-            ForgotPasswordScreen(onBackToLoginClick = { navController.navigate("login") })
+            ResetPasswordScreen(onBackToLoginClick = { navController.navigate("login") })
         }
     }
 }

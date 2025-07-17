@@ -10,27 +10,24 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import imperial.mobile.irecycle.ui.theme.Roboto
 
 @Composable
 fun ResetPasswordScreen(
+    onBackToLoginClick: () -> Unit,
     onSubmit: (String) -> Unit = {},
-    onResendClick: () -> Unit = {}
+    onResendClick: () -> Unit = {},
+    modifier: Modifier = Modifier
 ) {
     var email by remember { mutableStateOf("") }
 
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(Color.White)
     ) {
@@ -79,7 +76,7 @@ fun ResetPasswordScreen(
             Spacer(modifier = Modifier.height(32.dp))
 
             Text(
-                text = "Didn’t receive reset link? Click here to resend",
+                text = "Didn't receive reset link? Click here to resend",
                 fontSize = 19.sp,
                 color = Color.Black,
                 fontStyle = androidx.compose.ui.text.font.FontStyle.Italic,
@@ -89,29 +86,39 @@ fun ResetPasswordScreen(
                 lineHeight = 26.sp,
                 fontFamily = Roboto
             )
-        }
 
-        Spacer(modifier = Modifier.height(64.dp))
+            Spacer(modifier = Modifier.height(40.dp))
 
+            Button(
+                onClick = { onSubmit(email) },
+                modifier = Modifier
+                    .width(160.dp)
+                    .height(40.dp)
+                    .align(Alignment.CenterHorizontally),
+                shape = RoundedCornerShape(8.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFF171918)
+                )
+            ) {
+                Text(
+                    text = "Submit",
+                    fontSize = 15.sp,
+                    color = Color(0xFFE5E5E5)
+                )
+            }
 
-        Button(
-            onClick = { onSubmit(email) },
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding(bottom = 90.dp, top = 90.dp)
+            Spacer(modifier = Modifier.height(16.dp))
 
-                .width(160.dp)
-                .height(40.dp),
-            shape = RoundedCornerShape(8.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFF171918)
-            )
-        ) {
-            Text(
-                text = "Submit",
-                fontSize = 15.sp,
-                color = Color(0xFFE5E5E5)
-            )
+            TextButton(
+                onClick = onBackToLoginClick,
+                modifier = Modifier.align(Alignment.CenterHorizontally)
+            ) {
+                Text(
+                    text = "Back to Login",
+                    color = Color(0xFF006241),
+                    fontWeight = FontWeight.Bold
+                )
+            }
         }
     }
 }
