@@ -80,20 +80,6 @@ fun WelcomeScreen(onNextClick: () -> Unit) {
 
                 Spacer(modifier = Modifier.height(32.dp))
 
-//                Button(
-//                    onClick = onNextClick,
-//                    modifier = Modifier
-//                        .fillMaxWidth()
-//                        .padding(horizontal = 32.dp),
-//                    colors = ButtonDefaults.buttonColors(
-//                        containerColor = Color.Green,
-//                        contentColor = Color.White
-//                    )
-//                ) {
-//                    Text("Get started", color = Color.Green)
-//                }
-
-
                 Button(
                     onClick = onNextClick,
                     colors = ButtonDefaults.buttonColors(

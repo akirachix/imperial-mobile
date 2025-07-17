@@ -10,18 +10,26 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.graphics.Color
 
+
+
 @Composable
-fun LoginScreen(modifier: Modifier) {
+fun LoginScreen(
+    modifier: Modifier = Modifier,
+    onSignUpClick: () -> Unit,
+    onForgotPasswordClick: () -> Unit,
+    onLoginClick: () -> Unit = {}
+) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+
         Text(
             text = "KEEP YOUR CITY CLEAN",
             style = MaterialTheme.typography.headlineMedium,
@@ -73,14 +81,14 @@ fun LoginScreen(modifier: Modifier) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        TextButton(onClick = { }) {
+        TextButton(onClick = onForgotPasswordClick) {
             Text("Forgot Password?", color = Color.DarkGray)
         }
 
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
-            onClick = { },
+            onClick = onLoginClick,
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xFF14643c),
@@ -92,7 +100,7 @@ fun LoginScreen(modifier: Modifier) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        TextButton(onClick = { }) {
+        TextButton(onClick = onSignUpClick) {
             Text(
                 text = "Don't have an account? Sign Up",
                 color = Color.Black
@@ -100,3 +108,4 @@ fun LoginScreen(modifier: Modifier) {
         }
     }
 }
+

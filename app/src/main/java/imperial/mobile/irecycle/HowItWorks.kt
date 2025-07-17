@@ -32,7 +32,6 @@ fun HowItWorksScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF14643c))
             .padding(16.dp, 44.dp, 16.dp, 84.dp),
 
         horizontalAlignment = Alignment.Start,
@@ -54,7 +53,6 @@ fun HowItWorksScreen(
         Text(
             text = "1. View company catalog to see price/kg for each material",
             color = Color.White,
-            fontSize = 20.sp
 
 
 
@@ -63,7 +61,6 @@ fun HowItWorksScreen(
         Text(
             text = "2. Select the type of your cloth material",
             color = Color.White,
-            fontSize = 20.sp,
 
 
         )
@@ -71,19 +68,16 @@ fun HowItWorksScreen(
         Text(
             text = "3. Enter the estimated weight",
             color = Color.White,
-            fontSize = 20.sp
         )
         Spacer(modifier = Modifier.height(30.dp))
         Text(
             text = "4. Take the picture of the cloth",
             color = Color.White,
-            fontSize = 20.sp
         )
         Spacer(modifier = Modifier.height(30.dp))
         Text(
             text = "5. Your clothes are posted and wait to receive pickup request",
             color = Color.White,
-            fontSize = 20.sp
         )
 
         Spacer(modifier = Modifier.height(250.dp))
